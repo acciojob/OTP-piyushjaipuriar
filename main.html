@@ -1,16 +1,73 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #verification_heading {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #verification_subtext {
+            font-size: 14px;
+            color: gray;
+            margin-bottom: 20px;
+        }
+
+        .code-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .code {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+    </style>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+    <div>
+        <div id="verification_heading">OTP Verification</div>
+        <div id="verification_subtext">Enter the 6-digit OTP sent to your mobile number</div>
+        <div class="code-container">
+            <input type="text" class="code" maxlength="1" oninput="focusNext(this)" onkeydown="focusPrev(this)">
+            <input type="text" class="code" maxlength="1" oninput="focusNext(this)" onkeydown="focusPrev(this)">
+            <input type="text" class="code" maxlength="1" oninput="focusNext(this)" onkeydown="focusPrev(this)">
+            <input type="text" class="code" maxlength="1" oninput="focusNext(this)" onkeydown="focusPrev(this)">
+            <input type="text" class="code" maxlength="1" oninput="focusNext(this)" onkeydown="focusPrev(this)">
+            <input type="text" class="code" maxlength="1" oninput="focusNext(this)" onkeydown="focusPrev(this)">
+        </div>
+    </div>
 
+    <script>
+        function focusNext(currentInput) {
+            if (currentInput.value && currentInput.nextElementSibling) {
+                currentInput.nextElementSibling.focus();
+            }
+        }
+
+        function focusPrev(currentInput) {
+            if (event.key === 'Backspace' && !currentInput.value && currentInput.previousElementSibling) {
+                currentInput.previousElementSibling.focus();
+            }
+        }
+    </script>
 </body>
-
 </html>
